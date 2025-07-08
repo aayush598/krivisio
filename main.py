@@ -3,6 +3,7 @@ from tool1_feature_suggestion import router as suggest_router
 from tool1_feature_classification import router as classify_router
 from tool2_cocomo2_parameters import router as cocomo_param_router
 from tool2_cocomo2_evaluation import router as cocomo2_router
+from tool2_specsheet_generator import router as specsheet_router
 
 app = FastAPI()
 
@@ -10,3 +11,4 @@ app.include_router(suggest_router, prefix="/api")
 app.include_router(classify_router, prefix="/api")
 app.include_router(cocomo_param_router, prefix="/api")
 app.include_router(cocomo2_router, prefix="/api")
+app.include_router(specsheet_router, prefix="/api")
