@@ -41,7 +41,7 @@ def upload_to_github(data: GitHubUploadInput):
         }
 
         response = requests.post(
-            "https://krivisio-githubcodeuploader.onrender.com/create-and-upload",
+            "https://krivisio-githubcodeuploader-hfyr.onrender.com/create-and-upload",
             json=payload,
             timeout=120
         )

@@ -21,7 +21,7 @@ def suggest_features_and_stack(input: IdeationInput):
     try:
         print(f"inpu : {input}")
         response = requests.post(
-            "https://github-project-extractor.onrender.com/ideate",
+            "https://github-project-extractor-4v1r.onrender.com/ideate",
             json=input.dict(),
             timeout=60
         )

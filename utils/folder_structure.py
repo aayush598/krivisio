@@ -3,7 +3,7 @@ import streamlit as st
 
 def generate_directory_structure(project_desc: str, tech_stack: list[str], preferences: str = "") -> dict:
     """Send project info to directory structure generation API"""
-    url = "https://krip-ai-folderstructuregenerator.onrender.com/generate"
+    url = "https://krip-ai-folderstructuregenerator-fgag.onrender.com/generate"
     payload = {
         "project_desc": project_desc,
         "tech_stack": tech_stack,
