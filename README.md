@@ -306,7 +306,7 @@ This FastAPI-based project provides a set of intelligent tools to assist in earl
   "software": "chatbot",
   "level": "basic",
   "features": [
-        "User Authentication",
+    "User Authentication",
     "Basic Data Storage",
     "Text-Based Input/Output",
     "Chatbot Interface",
@@ -314,49 +314,26 @@ This FastAPI-based project provides a set of intelligent tools to assist in earl
     "Task Creation/Deletion"
   ],
   "api_results": {
-    "additionalProp1": {
-  "function_points": {
-    "fp_items": [
-      {
-        "fp_type": "EI",
-        "det": 10,
-        "ftr_or_ret": 2
+    "status": "success",
+    "results": {
+      "function_points": {
+        "ufp": 31,
+        "sloc": 1643
       },
-      {
-        "fp_type": "EO",
-        "det": 8,
-        "ftr_or_ret": 3
+      "reuse": null,
+      "revl": {
+        "sloc_total": 11000,
+        "sloc_after_revl": 13750
       },
-      {
-        "fp_type": "ILF",
-        "det": 18,
-        "ftr_or_ret": 4
+      "effort_schedule": {
+        "person_months": 26.96,
+        "development_time_months": 8.53,
+        "avg_team_size": 3.16
       }
-    ],
-    "language": "Java"
-  },
-  "reuse": {
-    "asloc": 2500,
-    "dm": 10,
-    "cm": 25,
-    "im": 5,
-    "su_rating": "N",
-    "aa_rating": "2",
-    "unfm_rating": "SF",
-    "at": 10
-  },
-  "revl": {
-    "new_sloc": 5000,
-    "adapted_esloc": 1000,
-    "revl_percent": 20
-  },
-  "effort_schedule": {
-    "sloc_ksloc": 2,
-    "sced_rating": "N"
+    }
   }
 }
-  }
-}
+
 ```
 
 #### Response:
