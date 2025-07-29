@@ -1,22 +1,26 @@
 from utils.groq_utils import chat_with_llm
 
-
 def build_comprehensive_spec_sheet(software: str, level: str, features: list[str], api_results: dict) -> str:
     """Generate a comprehensive spec sheet using project info and API results"""
-    
-    # Extract key metrics from API results
-    fp_result = api_results.get('function_points', {})
-    reuse_result = api_results.get('reuse', {})
-    revl_result = api_results.get('revl', {})
-    effort_result = api_results.get('effort_schedule', {})
-    
+
+    # Navigate to relevant nested data
+    results = api_results.get('results', {})
+
+    # Extract key metrics safely
+    fp_result = results.get('function_points', {})
+    reuse_result = results.get('reuse')  # reuse is null in this case
+    revl_result = results.get('revl', {})
+    effort_result = results.get('effort_schedule', {})
+
+    # Pull metrics with defaults
     sloc = fp_result.get('sloc', 'N/A')
-    esloc = reuse_result.get('esloc', 'N/A')
+    esloc = reuse_result.get('esloc', 'N/A') if reuse_result else 'N/A'
     total_sloc = revl_result.get('sloc_after_revl', 'N/A')
     person_months = effort_result.get('person_months', 'N/A')
     dev_time = effort_result.get('development_time_months', 'N/A')
     team_size = effort_result.get('avg_team_size', 'N/A')
-    
+
+    # Build prompt for LLM
     prompt = (
         f"You are a senior technical project manager. Create a comprehensive project specification document in Markdown "
         f"for the **{software}** project at **{level}** complexity level.\n\n"
@@ -42,6 +46,5 @@ def build_comprehensive_spec_sheet(software: str, level: str, features: list[str
         "10. **Resource Requirements** - Team structure and skills needed\n\n"
         "Make it professional, detailed, and actionable. Use the COCOMO-II metrics to provide realistic timelines and resource estimates."
     )
-    
-    return chat_with_llm(prompt)
 
+    return chat_with_llm(prompt)
