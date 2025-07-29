@@ -22,8 +22,7 @@ def suggest_features_and_stack(input: IdeationInput):
         print(f"inpu : {input}")
         response = requests.post(
             "https://github-project-extractor-4v1r.onrender.com/ideate",
-            json=input.dict(),
-            timeout=60
+            json=input.dict()
         )
         if response.status_code != 200:
             raise HTTPException(status_code=500, detail="Failed to fetch data from Tool 1")
