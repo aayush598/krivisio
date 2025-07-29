@@ -2,7 +2,7 @@
 
 import requests
 
-BASE_URL = "https://cocomo2-python-bmzz.onrender.com"
+BASE_URL = "https://cocomo2-python.onrender.com"
 
 def post_json(endpoint: str, payload: dict):
     try:
