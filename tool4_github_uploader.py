@@ -1,17 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List, Dict, Union
-import os
 import requests
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
-GITHUB_USERNAME = os.getenv("GITHUB_USERNAME")
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-
-if not GITHUB_USERNAME or not GITHUB_TOKEN:
-    raise EnvironmentError("GITHUB_USERNAME and GITHUB_TOKEN must be set in .env")
 
 router = APIRouter()
 
@@ -26,6 +16,8 @@ StructureItem.update_forward_refs()
 class GitHubUploadInput(BaseModel):
     name: str
     structure: List[StructureItem]
+    github_username: str
+    github_token: str
 
 @router.post("/tool4/upload-to-github", tags=["GitHub Uploader"])
 def upload_to_github(data: GitHubUploadInput):
@@ -35,8 +27,8 @@ def upload_to_github(data: GitHubUploadInput):
             "structure": [item.dict() for item in data.structure],
             "github_data": {
                 "repo_name": data.name,
-                "github_token": GITHUB_TOKEN,
-                "github_username": GITHUB_USERNAME
+                "github_token": data.github_token,
+                "github_username": data.github_username
             }
         }
 
