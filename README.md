@@ -548,10 +548,6 @@ This FastAPI-based project provides a set of intelligent tools to assist in earl
 
 **POST** `/api/tool4/upload-to-github`
 
-#### Environment Variables Required:
-
-* `GITHUB_USERNAME`
-* `GITHUB_TOKEN`
 
 #### Request:
 
