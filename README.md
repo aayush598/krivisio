@@ -581,7 +581,9 @@ This FastAPI-based project provides a set of intelligent tools to assist in earl
         {"type": "file", "name": "requirements.txt"}
       ]
     }
-  ]
+  ],
+  "github_username": "<username>",
+  "github_token": "<token>"
 }
 
 ```
